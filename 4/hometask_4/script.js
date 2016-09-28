@@ -50,3 +50,23 @@ function countChar(str, charInStr) {
 }
 
 countChar("adsndjansdauSUDN", "a");
+
+// Задача со звёздочкой
+function isEven(number) {
+    if (number % 2 == 0)
+        return true;
+    if (number % 2 == 1)
+        return false;
+    // при таком исполнении рекурсия не найдет выхода.
+    // необходимо сравнивать абсолютные значения
+    // return isEven(number - 2);
+
+    // Верно будет следуюищим образом
+    // Тогда если number будет -1 он действительно выдаст,
+    // что это нечетное число, то есть false
+    return isEven((number - 2) * (number > 0 ? 1 : -1));
+}
+
+console.log(isEven(50));
+console.log(isEven(75));
+console.log(isEven(-1));
